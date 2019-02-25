@@ -5,7 +5,7 @@
 
   let currentScreen = 0;
 
-  document.addEventListener(`keyup`, function (evt) {
+  const hotKey = function (evt) {
     const KEY_LEFT = 37;
     const KEY_RIGHT = 39;
 
@@ -19,15 +19,15 @@
           break;
       }
     }
-  });
+  };
 
-  function clearMainNode() {
-    while (mainNode.lastChild) {
-      mainNode.removeChild(mainNode.lastChild);
+  const clearMainNode = function () {
+    while (mainNode.firstChild) {
+      mainNode.removeChild(mainNode.firstChild);
     }
-  }
+  };
 
-  function showScreen(index = 0) {
+  const showScreen = function (index = 0) {
     if (index > templatesNodeList.length - 1 || index > screenIndexes.length - 1 || index < 0) {
       return;
     }
@@ -37,7 +37,8 @@
     clearMainNode();
 
     mainNode.appendChild(templatesNodeList[screenIndexes[index]].cloneNode(true));
-  }
+  };
 
   showScreen(currentScreen);
+  document.addEventListener(`keyup`, hotKey);
 }());
