@@ -28,5 +28,16 @@
   },
   "engines": {
     "node": "6.10"
-  }
+  },
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VKordovich/guess-melody.git"
+  },
+  "author": "vk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VKordovich/guess-melody/issues"
+  },
+  "homepage": "https://github.com/VKordovich/guess-melody#readme"
 }
