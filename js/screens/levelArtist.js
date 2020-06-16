@@ -48,7 +48,7 @@ const html = `<section class="main main--level main--level-artist">
     </div>
   </section>`;
 const element = getElementFromTemplate(html);
-const arrayButtons = Array.from(element.querySelectorAll(`.main-answer`))
+const arrayButtons = Array.from(element.querySelectorAll(`.main-answer`));
 
 arrayButtons.forEach((currentButton, index, array) => {
   currentButton.addEventListener(`click`, () => {
