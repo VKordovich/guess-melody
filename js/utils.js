@@ -31,4 +31,3 @@ export const arrayShuffle = (array) => {
 export const padLeft = (value = 0) => {
   return value > 9 ? value.toString() : `0${value}`;
 };
-

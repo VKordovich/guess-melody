@@ -3,9 +3,8 @@ import {
   showScreen
 } from '../utils';
 import levelArtist from './levelArtist';
-import {
-  head
-} from '../models/dictionary';
+import {head} from '../models/dictionary';
+import gameInitState from '../models/gameInitState';
 
 export default () => {
   const html = `<section class="main main--welcome">
@@ -23,7 +22,7 @@ export default () => {
   const playButton = element.querySelector(`.main-play`);
 
   playButton.addEventListener(`click`, () => {
-    showScreen(levelArtist);
+    showScreen(levelArtist(gameInitState()));
   });
   return element;
 };

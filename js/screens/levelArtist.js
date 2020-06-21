@@ -1,6 +1,12 @@
-import {getElementFromTemplate, showScreen, arrayShuffle, getRandomInt, padLeft} from '../utils';
+import {
+  getElementFromTemplate,
+  showScreen,
+  arrayShuffle,
+  getRandomInt,
+  padLeft
+} from '../utils';
 import levelGenre from './levelGenre';
-import tracks from '../models/tracks';
+import tracks from '../models/tracks.js';
 
 const MAX_ANSWERS_SHOW = 3;
 const LEVEL_TIME = 10;
@@ -39,7 +45,11 @@ const startTimer = () => {
 const createLevel = () => {
 
   const options = arrayShuffle(Array.from(tracks)).slice(0, MAX_ANSWERS_SHOW);
-  const levelHistory = {answerId: null, optionId: null, optionsId: options.map(([index]) => index)};
+  const levelHistory = {
+    answerId: null,
+    optionId: null,
+    optionsId: options.map(([index]) => index)
+  };
   const answers = [];
 
   levelHistory.answerId = levelHistory.optionsId[getRandomInt(0, levelHistory.optionsId.length)];
@@ -102,10 +112,8 @@ const createLevel = () => {
   return element;
 };
 
-arrayButtons.forEach((currentButton, index, array) => {
-  currentButton.addEventListener(`click`, () => {
-    showScreen(levelGenre);
-  });
-});
-
-export default element;
+export default (state) => {
+  gameState = state;
+  startTimer();
+  return createLevel();
+};
