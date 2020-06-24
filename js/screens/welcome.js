@@ -1,10 +1,16 @@
-import {getElementFromTemplate, showScreen} from '../utils';
+import {
+  getElementFromTemplate,
+  showScreen
+} from '../utils';
 import levelArtist from './levelArtist';
+import {head} from '../models/dictionary';
+import gameInitState from '../models/gameInitState';
 
-const html = `<section class="main main--welcome">
-    <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
+export default () => {
+  const html = `<section class="main main--welcome">
+    <section class="logo" title="${head.header}"><h1>${head.header}</h1></section>
     <button class="main-play">Начать игру</button>
-    <h2 class="title main-title">Правила игры</h2>
+    <h2 class="title main-title">${head.title}</h2>
     <p class="text main-text">
       Правила просты&nbsp;— за&nbsp;2 минуты дать
       максимальное количество правильных ответов.<br>
@@ -12,11 +18,11 @@ const html = `<section class="main main--welcome">
     </p>
   </section>`;
 
-const element = getElementFromTemplate(html);
-const playButton = element.querySelector(`.main-play`);
+  const element = getElementFromTemplate(html);
+  const playButton = element.querySelector(`.main-play`);
 
-playButton.addEventListener(`click`, () => {
-  showScreen(levelArtist);
-});
-
-export default element;
+  playButton.addEventListener(`click`, () => {
+    showScreen(levelArtist(gameInitState()));
+  });
+  return element;
+};
