@@ -56,12 +56,12 @@ export default (state) => {
   sendBtn.disabled = true;
 
   answersNode.forEach((el) => {
-    el.addEventListener(`change`, (evt) => {
+    el.addEventListener(`change`, () => {
       sendBtn.disabled = !answersNode.find((answer) => answer.checked);
     });
   });
 
-  sendBtn.addEventListener(`click`, (evt) => {
+  sendBtn.addEventListener(`click`, () => {
     state.levelGenre.answersId = answersNode.filter((answer) => answer.checked).map((answer) => +answer.id);
     showScreen(result(state));
   });
